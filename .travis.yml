@@ -1,2 +1,18 @@
 language: c
-script: make
+
+jobs:
+  include:
+    stage: Compile the Program
+    script: echo "Compiling the program ..."
+    script: make
+    stage: Test the Program
+    script: echo "Testing the program ..."
+    script: test
+    stage: GitHub Release
+      script: echo "Deploying to GitHub releases ..."
+      deploy:
+        provider: releases
+        api_key: $GITHUB_OAUTH_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
