@@ -1,10 +1,10 @@
 language: c
 
-jobs:
-  include:
-    stage: Compile the Program
-    script: echo "Compiling the program ..."
-    script: make
-    stage: Test the Program
-    script: echo "Testing the program ..."
-    script: test
+stage: Compile the Program
+script: echo "Compiling the program ..."
+script: make
+
+after_success:
+stage: Test the Program
+script: echo "Testing the program ..."
+script: test
