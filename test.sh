@@ -6,7 +6,7 @@ chmod +x ./basicmake
 
 ./basicmake | read result
 
-echo result
+echo $result
 
-test -n result
-test result = "Result is: 10"
+test -n $result
+test $result = "Result is: 10"
