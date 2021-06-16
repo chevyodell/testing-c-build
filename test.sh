@@ -4,9 +4,7 @@ chmod +x ./basicmake
 
 ./basicmake
 
-exec ./basicmake
- 
-read result
+result = $(./basicmake)
 
 echo $result
 
