@@ -8,19 +8,25 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v2
-    - name: make
+    - name: make executable
       run: make
-    - name: upload artifact
+    - name: upload build artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: basicmake
+        path: basicmake     
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - uses: actions/download-artifact@main
+      with: 
+        name: download build artifacts
         path: basicmake
-    - name: make test executable
-      run: chmod +x ./test.sh
     - name: test
-      run: ./test.sh      
+      run: chmod +x ./test.sh && ./test.sh
