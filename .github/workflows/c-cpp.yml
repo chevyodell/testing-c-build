@@ -19,7 +19,7 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: basicmake
-        path: build/basicmake
+        path: basicmake
     - name: test
       run: test.sh
       
