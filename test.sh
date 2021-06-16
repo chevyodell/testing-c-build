@@ -7,4 +7,4 @@ exec ./basicmake | read RES
 
 echo $RES
 
-test [$RES = "Result is: 10"]
+test [[$RES = "Result is: 10"]]
