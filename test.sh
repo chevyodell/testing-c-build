@@ -7,4 +7,10 @@ exec ./basicmake | read RES
 
 echo $RES
 
-test [[$RES = "Result is: 10"]]
+if [$RES == "Result is: 10"]
+  echo "Test Passed!"
+  return 0
+else
+  echo "Test Failed!"
+  return 1
+fi
