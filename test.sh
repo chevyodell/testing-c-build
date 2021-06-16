@@ -2,7 +2,7 @@
 
 chmod +x ./basicmake
 
-result = $(./basicmake)
+RES = $(./basicmake)
 
-test -n $result
-test $result == "Result is: 10"
+test -n $RES
+test $RES = "Result is: 10"
