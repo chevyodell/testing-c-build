@@ -4,7 +4,7 @@ chmod +x ./basicmake
 
 ./basicmake
 
-./basicmake | read result
+read result < ./basicmake
 
 echo $result
 
