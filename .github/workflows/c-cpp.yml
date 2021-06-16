@@ -20,6 +20,7 @@ jobs:
       with:
         name: basicmake
         path: basicmake
+    - name: make test executable
+      run: chmod +x ./test.sh
     - name: test
-      run: ./test.sh
-      
+      run: ./test.sh      
