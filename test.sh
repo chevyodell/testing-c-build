@@ -4,4 +4,4 @@ chmod +x ./basicmake
 
 ./basicmake
 
-read ./basicmake
+./basicmake | read result
