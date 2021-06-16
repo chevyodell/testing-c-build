@@ -1,4 +1,6 @@
 language: c
 
 script: echo "Compiling the program ..."
-script: make && .\test.sh
+script: make
+script: echo "Testing the program ..."
+script: chmod +x ./test.sh && ./test.sh
