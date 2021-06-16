@@ -2,11 +2,10 @@
 
 chmod +x ./basicmake
 
-./basicmake
+shopt -s lastpipe
+./basicmake | read result
 
-result = $(./basicmake)
-
-echo $result
+echo "$result"
 
 test -n $result
-test $result = "Result is: 10"
+test $result == "Result is: 10"
