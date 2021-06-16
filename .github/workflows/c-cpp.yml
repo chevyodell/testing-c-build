@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v2
     - name: make executable
@@ -18,10 +17,47 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: basicmake
-        path: basicmake     
+        path: basicmake
+        
+  build2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: make executable
+      run: make
+    - name: upload build artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: basicmake
+        path: basicmake      
+  
   test:
     runs-on: ubuntu-latest
     needs: build
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@main
+      with: 
+        name: basicmake
+    - name: test
+      run: chmod +x ./test.sh && ./test.sh
+      
+  test2:
+    runs-on: ubuntu-latest
+    needs: build2
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@main
+      with: 
+        name: basicmake
+    - name: test
+      run: chmod +x ./test.sh && ./test.sh
+      
+  fakedeploy:
+    runs-on: ubuntu-latest
+    needs: [test, test2]
     
     steps:
     - uses: actions/checkout@v2
