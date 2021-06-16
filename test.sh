@@ -5,5 +5,6 @@ chmod +x ./basicmake
 shopt -s lastpipe
 exec ./basicmake | read RES
 
-test -n $RES
-test $RES = "Result is: 10"
+echo $RES
+
+test [$RES = "Result is: 10"]
