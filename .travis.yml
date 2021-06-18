@@ -3,4 +3,4 @@ language: c
 script: echo "Compiling the program ..."
 script: make
 script: echo "Testing the program ..."
-script: chmod +x ./test.sh && ./test.sh
+script: echo "Unimplemented."
